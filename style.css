@@ -109,7 +109,7 @@ body {
 .dashboard-notification-indicator {
   background-color: #f43f5e;
   height: 27px;
-  width: 27px;
+  width: 30px;
   border-radius: 100%;
   display: flex;
   align-items: center;
@@ -207,4 +207,27 @@ body {
   color: var(--primary-text-color);
   font-weight: 300;
   margin-left: 4px;
+}
+
+.navbar-user-profile {
+  display: flex;
+  align-items: center;
+  margin-top: 0.9887rem;
+}
+
+.navbar-user-profile .user-profile-info {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.navbar-user-profile .user-profile-info .username {
+  font-size: 12px;
+  color: var(--primary-text-color);
+  font-weight: 400;
+}
+
+.navbar-user-profile .user-profile-info .email {
+  color: var(--primary-text-color);
+  color: #64748b;
+  font-size: 12px;
 }
