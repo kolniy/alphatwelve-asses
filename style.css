@@ -1,0 +1,127 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #39cdcc;
+  --color-primary-light: #f3fcfc;
+  --color-secondary: #213f7d;
+  --color-background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #8576ff;
+    --color-primary-light: #f3fcfc;
+    --color-secondary: #213f7d;
+    --color-background: #ffffff;
+    --border-color: #f1f5f9;
+    --primary-text-color: #334155;
+    --color-primary-light: #fcf7ff;
+  }
+}
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Inter", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dashboard-layout {
+  height: 100vh;
+  position: relative;
+}
+
+.dashboard-layout__page-contents {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  position: relative;
+}
+
+.dashboard-layout__sidebar {
+  width: 240px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: var(--color-background);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s;
+  z-index: 1000 !important;
+  border-right: 1px solid var(--border-color);
+}
+
+.dashboard-layout__logo-section {
+  width: 100%;
+  margin-top: 18px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.sidebar-contents__container {
+  width: 87%;
+  margin: 0 auto;
+}
+
+.sidebar-menu {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.nav-links {
+  width: 87%;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.dashboard-link-item {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.dashboard-link-item a {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--primary-text-color);
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 10px;
+  display: flex;
+  align-items: baseline;
+}
+
+.dashboard-link-item:hover {
+  background-color: var(--color-primary-light);
+  width: 100%;
+}
+
+.dashboard-link-item:hover a {
+  color: var(--color-primary);
+}
+
+.link-item-menu-icon {
+  margin-right: 15px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.active {
+  background-color: var(--color-primary-light);
+  width: 100%;
+}
+
+.active a {
+  color: var(--color-primary);
+}
