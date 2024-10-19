@@ -107,105 +107,156 @@
             </div>
           </div>
         </div>
-        <div class="dashboard-layout__main-contents">
-          <section class="user-welcome-section">
-            <h2>Welcome! Here's your summary</h2>
-          </section>
-          <section class="user-statictics-section">
-            <div class="statistics-single__card">
-              <div class="card-top-section">
-                <p class="card-count">Total Events</p>
-                <span><i class="fas fa-info-circle"></i></span>
-              </div>
-              <div class="card-lower-section">
-                <h3>100,000</h3>
-                <div class="direction-info-green">
-                  <span><i class="fas fa-arrow-right up-right-icon"></i></span>
-                  <span>+5.0%</span>
-                </div>
-              </div>
-            </div>
 
-            <div class="statistics-single__card">
-              <div class="card-top-section">
-                <p class="card-count">Active Speakers</p>
-                <span><i class="fas fa-info-circle"></i></span>
-              </div>
-              <div class="card-lower-section">
-                <h3>25</h3>
-                <div class="direction-info-red">
-                  <span
-                    ><i class="fas fa-arrow-right down-right-icon"></i
-                  ></span>
-                  <span>-5.0%</span>
+        <!-- dashboard page starts here  -->
+        <div class="dashboard-layout__main-contents-container">
+          <div class="dashboard-layout__main-contents">
+            <section class="user-welcome-section">
+              <h2>Welcome! Here's your summary</h2>
+            </section>
+            <section class="user-statictics-section">
+              <div class="statistics-single__card">
+                <div class="card-top-section">
+                  <p class="card-count">Total Events</p>
+                  <span><i class="fas fa-info-circle"></i></span>
                 </div>
-              </div>
-            </div>
-
-            <div class="statistics-single__card">
-              <div class="card-top-section">
-                <p class="card-count">Total Registrations</p>
-                <span><i class="fas fa-info-circle"></i></span>
-              </div>
-              <div class="card-lower-section">
-                <h3>300</h3>
-                <div class="direction-info-green">
-                  <span><i class="fas fa-arrow-right up-right-icon"></i></span>
-                  <span>+5.0%</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="statistics-single__card">
-              <div class="card-top-section">
-                <p class="card-count">Total Revenue</p>
-                <span><i class="fas fa-info-circle"></i></span>
-              </div>
-              <div class="card-lower-section">
-                <h3>$500,000</h3>
-                <div class="direction-info-green">
-                  <span><i class="fas fa-arrow-right up-right-icon"></i></span>
-                  <span>+5.0%</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="registration-chart-section">
-            <h4>Event Registrations per month</h4>
-            <div class="reg-event-updates-container">
-              <div class="chart-container">
-                <canvas id="reg-chart"></canvas>
-              </div>
-              <!-- carousel start  -->
-              <div class="carousel-container">
-                <div class="carousel-images">
-                  <div class="slide">
-                    <img src="/images/Slide1.png" alt="Slide 1" />
-                    <div class="caption">Caption for Slide 1</div>
-                  </div>
-                  <div class="slide">
-                    <img src="/images/Slide2.png" alt="Slide 2" />
-                    <div class="caption">Caption for Slide 2</div>
-                  </div>
-                  <div class="slide">
-                    <img src="/images/Slide3.png" alt="Slide 3" />
-                    <div class="caption">Caption for Slide 3</div>
+                <div class="card-lower-section">
+                  <h3>100,000</h3>
+                  <div class="direction-info-green">
+                    <span
+                      ><i class="fas fa-arrow-right up-right-icon"></i
+                    ></span>
+                    <span>+5.0%</span>
                   </div>
                 </div>
-                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+              </div>
 
-                <div class="indicators">
-                  <span class="indicator" onclick="showSlide(0)"></span>
-                  <span class="indicator" onclick="showSlide(1)"></span>
-                  <span class="indicator" onclick="showSlide(2)"></span>
+              <div class="statistics-single__card">
+                <div class="card-top-section">
+                  <p class="card-count">Active Speakers</p>
+                  <span><i class="fas fa-info-circle"></i></span>
+                </div>
+                <div class="card-lower-section">
+                  <h3>25</h3>
+                  <div class="direction-info-red">
+                    <span
+                      ><i class="fas fa-arrow-right down-right-icon"></i
+                    ></span>
+                    <span>-5.0%</span>
+                  </div>
                 </div>
               </div>
-              <!-- carousel end  -->
-            </div>
-          </section>
+
+              <div class="statistics-single__card">
+                <div class="card-top-section">
+                  <p class="card-count">Total Registrations</p>
+                  <span><i class="fas fa-info-circle"></i></span>
+                </div>
+                <div class="card-lower-section">
+                  <h3>300</h3>
+                  <div class="direction-info-green">
+                    <span
+                      ><i class="fas fa-arrow-right up-right-icon"></i
+                    ></span>
+                    <span>+5.0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="statistics-single__card">
+                <div class="card-top-section">
+                  <p class="card-count">Total Revenue</p>
+                  <span><i class="fas fa-info-circle"></i></span>
+                </div>
+                <div class="card-lower-section">
+                  <h3>$500,000</h3>
+                  <div class="direction-info-green">
+                    <span
+                      ><i class="fas fa-arrow-right up-right-icon"></i
+                    ></span>
+                    <span>+5.0%</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="registration-chart-section">
+              <h4>Event Registrations per month</h4>
+              <div class="reg-event-updates-container">
+                <div class="chart-container">
+                  <canvas id="reg-chart"></canvas>
+                </div>
+                <!-- carousel start  -->
+                <div class="carousel-container">
+                  <div class="overlay"></div>
+                  <div class="carousel-images">
+                    <div class="slide">
+                      <img src="/images/Slide1.png" alt="Slide 1" />
+                      <div class="caption">
+                        <h4>Latest News & Updates</h4>
+                        <p>
+                          Turpis interdum nunc varius ornare dignissim pretium.
+                          Massa ornare quis aliquet sed vitae. Sed velit nisi,
+                          fermentum erat. Fringilla purus, erat fringilla
+                          tincidunt quisque non. Pellentesque in ut tellus.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="slide">
+                      <img src="/images/Slide2.png" alt="Slide 2" />
+                      <div class="caption">
+                        <h4>Latest News & Updates</h4>
+                        <p>
+                          Turpis interdum nunc varius ornare dignissim pretium.
+                          Massa ornare quis aliquet sed vitae. Sed velit nisi,
+                          fermentum erat. Fringilla purus, erat fringilla
+                          tincidunt quisque non. Pellentesque in ut tellus.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="slide">
+                      <img src="/images/Slide3.png" alt="Slide 3" />
+                      <div class="caption">
+                        <h4>Latest News & Updates</h4>
+                        <p>
+                          Turpis interdum nunc varius ornare dignissim pretium.
+                          Massa ornare quis aliquet sed vitae. Sed velit nisi,
+                          fermentum erat. Fringilla purus, erat fringilla
+                          tincidunt quisque non. Pellentesque in ut tellus.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-angle-left"></i>
+                  </button>
+                  <button class="carousel-next" onclick="changeSlide(1)">
+                    <i class="fas fa-angle-right"></i>
+                  </button>
+
+                  <div class="indicators">
+                    <span class="indicator" onclick="showSlide(0)"></span>
+                    <span class="indicator" onclick="showSlide(1)"></span>
+                    <span class="indicator" onclick="showSlide(2)"></span>
+                  </div>
+                </div>
+                <!-- carousel end  -->
+              </div>
+            </section>
+
+            <section class="event-history">
+              <h4>Events History</h4>
+              <div class="event-history__filters-container">
+                <div class="text-filter__container">
+                  <span><i class="fas fa-search"></i></span>
+                  <input type="text" placeholder="Search..." />
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
+
+        <!-- dashboard page ends here  -->
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
