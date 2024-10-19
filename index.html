@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style.css" />
     <title>Welcome to your Dashboard</title>
   </head>
@@ -20,56 +21,61 @@
     <div class="dashboard-layout">
       <div class="dashboard-layout__page-contents">
         <div class="dashboard-layout__sidebar">
-          <div class="dashboard-layout__logo-section">
-            <div class="sidebar-contents__container">Full Logo</div>
+          <div class="sidebar-contents__container">
+            <div class="dashboard-layout__logo-section">
+              <div>Full Logo</div>
+              <div class="mobile-menu__btn-container">
+                <img src="./images/breadcrumb.png" alt="..." />
+              </div>
+            </div>
           </div>
           <div class="sidebar-menu">
             <ul class="nav-links">
               <li class="dashboard-link-item active">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-home link-item-menu-icon"></i>
                   <span>Home</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-calendar-alt link-item-menu-icon"></i>
-                  <span>Events</span> </a
-                ><i class=""></i>
+                  <span>Events</span>
+                </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-volume-up link-item-menu-icon"></i>
                   <span>Speakers</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-file-alt link-item-menu-icon"></i>
                   <span>Reports</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-bell link-item-menu-icon"></i>
                   <span>Notifications</span>
                 </a>
                 <div class="dashboard-notification-indicator">3</div>
               </li>
               <li class="dashboard-link-item">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-comments link-item-menu-icon"></i>
                   <span>Messages</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-cog link-item-menu-icon"></i>
                   <span>Settings</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="*">
+                <a href="#">
                   <i class="fas fa-angle-double-left link-item-menu-icon"></i>
                   <span>Collapse</span>
                 </a>
@@ -101,8 +107,110 @@
             </div>
           </div>
         </div>
-        <div class="dashboard-layout__main-contents">Hello world</div>
+        <div class="dashboard-layout__main-contents">
+          <section class="user-welcome-section">
+            <h2>Welcome! Here's your summary</h2>
+          </section>
+          <section class="user-statictics-section">
+            <div class="statistics-single__card">
+              <div class="card-top-section">
+                <p class="card-count">Total Events</p>
+                <span><i class="fas fa-info-circle"></i></span>
+              </div>
+              <div class="card-lower-section">
+                <h3>100,000</h3>
+                <div class="direction-info-green">
+                  <span><i class="fas fa-arrow-right up-right-icon"></i></span>
+                  <span>+5.0%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="statistics-single__card">
+              <div class="card-top-section">
+                <p class="card-count">Active Speakers</p>
+                <span><i class="fas fa-info-circle"></i></span>
+              </div>
+              <div class="card-lower-section">
+                <h3>25</h3>
+                <div class="direction-info-red">
+                  <span
+                    ><i class="fas fa-arrow-right down-right-icon"></i
+                  ></span>
+                  <span>-5.0%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="statistics-single__card">
+              <div class="card-top-section">
+                <p class="card-count">Total Registrations</p>
+                <span><i class="fas fa-info-circle"></i></span>
+              </div>
+              <div class="card-lower-section">
+                <h3>300</h3>
+                <div class="direction-info-green">
+                  <span><i class="fas fa-arrow-right up-right-icon"></i></span>
+                  <span>+5.0%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="statistics-single__card">
+              <div class="card-top-section">
+                <p class="card-count">Total Revenue</p>
+                <span><i class="fas fa-info-circle"></i></span>
+              </div>
+              <div class="card-lower-section">
+                <h3>$500,000</h3>
+                <div class="direction-info-green">
+                  <span><i class="fas fa-arrow-right up-right-icon"></i></span>
+                  <span>+5.0%</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="registration-chart-section">
+            <h4>Event Registrations per month</h4>
+            <div class="reg-event-updates-container">
+              <div class="chart-container">
+                <canvas id="reg-chart"></canvas>
+              </div>
+              <!-- carousel start  -->
+              <div class="carousel-container">
+                <div class="carousel-images">
+                  <div class="slide">
+                    <img src="/images/Slide1.png" alt="Slide 1" />
+                    <div class="caption">Caption for Slide 1</div>
+                  </div>
+                  <div class="slide">
+                    <img src="/images/Slide2.png" alt="Slide 2" />
+                    <div class="caption">Caption for Slide 2</div>
+                  </div>
+                  <div class="slide">
+                    <img src="/images/Slide3.png" alt="Slide 3" />
+                    <div class="caption">Caption for Slide 3</div>
+                  </div>
+                </div>
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+
+                <div class="indicators">
+                  <span class="indicator" onclick="showSlide(0)"></span>
+                  <span class="indicator" onclick="showSlide(1)"></span>
+                  <span class="indicator" onclick="showSlide(2)"></span>
+                </div>
+              </div>
+              <!-- carousel end  -->
+            </div>
+          </section>
+        </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/chart.js"></script>
+    <script src="/js/slidder.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>
