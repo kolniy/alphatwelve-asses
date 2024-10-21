@@ -246,12 +246,77 @@
 
             <section class="event-history">
               <h4>Events History</h4>
+              <!-- filter container start  -->
               <div class="event-history__filters-container">
-                <div class="text-filter__container">
-                  <span><i class="fas fa-search"></i></span>
-                  <input type="text" placeholder="Search..." />
+                <div class="filter-sub-section">
+                  <div class="text-filter__container">
+                    <span><i class="fas fa-search"></i></span>
+                    <input type="text" placeholder="Search..." />
+                  </div>
+                  <div class="select-filter__container">
+                    <select className="date-filter-input">
+                      <option value="">Date</option>
+                      <option value="">Select</option>
+                      <option value="">Select</option>
+                    </select>
+                  </div>
+                  <div class="select-filter__container">
+                    <select className="date-filter-input">
+                      <option value="">Status</option>
+                      <option value="">Select</option>
+                      <option value="">Select</option>
+                    </select>
+                  </div>
+                  <div class="select-filter__container">
+                    <select className="date-filter-input">
+                      <option value="">Name</option>
+                      <option value="">Select</option>
+                      <option value="">Select</option>
+                    </select>
+                  </div>
+                  <p class="list-count">Displaying 100 results</p>
+                </div>
+                <div class="filter-sub-section">
+                  <p class="sort-text">Sort:</p>
+                  <div class="select-filter__container">
+                    <select className="date-filter-input">
+                      <option value="">Most Recent</option>
+                      <option value="">Select</option>
+                      <option value="">Select</option>
+                    </select>
+                  </div>
+                  <div class="filter-menu-container">
+                    <i class="fas fa-ellipsis-v"></i>
+                  </div>
+                  <div class="export-text__container">
+                    <span><i class="fas fa-download"></i></span>
+                    Export
+                  </div>
                 </div>
               </div>
+              <!-- filter container end  -->
+
+              <!-- table list start  -->
+              <div class="table-list__container">
+                <div className="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <td>
+                          <span className="table-head-text">Event Name</span>
+                        </td>
+                        <td><span className="table-head-text">Date</span></td>
+                        <td>
+                          <span className="table-head-text">Speaker</span>
+                        </td>
+                        <td><span className="table-head-text">Status</span></td>
+                      </tr>
+                    </thead>
+                    <tbody class="table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- tbale list end  -->
             </section>
           </div>
         </div>
@@ -262,6 +327,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/chart.js"></script>
     <script src="/js/slidder.js"></script>
+    <script src="/js/tableData.js"></script>
     <script src="/js/index.js"></script>
   </body>
 </html>
