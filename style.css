@@ -575,6 +575,13 @@ body {
   justify-content: flex-end;
 }
 
+.filter-sub-section .sort-data-align {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .text-filter__container {
   display: flex;
   align-items: center;
@@ -615,10 +622,13 @@ body {
   color: #cbd5e1;
 }
 
-.select-filter__container {
+.select-filter__container,
+.select-filter__container-most-recent {
   height: 100%;
 }
-.select-filter__container select {
+
+.select-filter__container select,
+.select-filter__container-most-recent select {
   height: 100%;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
@@ -868,6 +878,26 @@ tbody .completed i {
   border-radius: 50%;
 }
 
+@media screen and (max-width: 1000px) {
+  /* card change on smaller screens  */
+  .user-statictics-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reg-event-updates-container {
+    margin-top: 0.6rem;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* navbar closed by default  */
+  .user-statictics-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 /* Mobile responsive designs  */
 @media screen and (max-width: 768px) {
   /* navbar closed by default  */
@@ -913,5 +943,63 @@ tbody .completed i {
   /* display the mobile menu breadcrumb button desktop  */
   .mobile-menu__btn-container-navbar {
     display: block;
+  }
+
+  .user-welcome-section {
+    margin-top: 1rem;
+  }
+
+  .user-welcome-section h2 {
+    font-size: 17px;
+  }
+
+  .carousel-container .caption p {
+    font-weight: 400;
+    font-size: 11px;
+  }
+
+  .event-history__filters-container {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .filter-sub-section {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .select-filter__container,
+  .select-filter__container select,
+  .text-filter__container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .list-count {
+    align-self: stretch;
+    text-align: left;
+  }
+
+  .sort-data-align {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.1rem;
+    width: 100%;
+  }
+
+  .event-history__filters-container {
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  .filter-menu-container,
+  .export-text__container {
+    height: 36px;
+  }
+
+  .pagination-dropdown__btn p {
+    display: none;
   }
 }
