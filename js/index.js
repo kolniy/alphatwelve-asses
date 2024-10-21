@@ -65,7 +65,91 @@ const populateTableData = () => {
     tableBody.appendChild(row);
   });
 };
+
+const populateTableDataMobile = () => {
+  const historyContainerMobile = document.querySelector(
+    ".mobile-history__body"
+  );
+
+  eventsData.forEach((item, index) => {
+    // Create accordion item container
+    const accordionItem = document.createElement("div");
+    accordionItem.classList.add("accordion-item");
+
+    //  Create title element
+    const accordionTitle = document.createElement("div");
+    accordionTitle.classList.add("accordion-title");
+
+    const accordionTitleElement = document.createElement("p");
+    accordionTitleElement.textContent = item.eventName;
+
+    const accordionTitleIcon = document.createElement("i");
+    accordionTitleIcon.classList.add("fas", "fa-chevron-right");
+
+    const accordionTitleInnerDiv = document.createElement("div");
+    accordionTitleInnerDiv.classList.add("accordion-title-inner-div");
+
+    const accordionTitleStatus = document.createElement("span");
+    if (item.status.toLowerCase() === "completed") {
+      accordionTitleStatus.classList.add(
+        "accordion-title-status",
+        "title-completed"
+      );
+    } else {
+      accordionTitleStatus.classList.add(
+        "accordion-title-status",
+        "title-inprogress"
+      );
+    }
+    accordionTitleStatus.textContent = item.status;
+
+    // append inner p and i tag into the inner div
+    accordionTitleInnerDiv.appendChild(accordionTitleIcon);
+    accordionTitleInnerDiv.appendChild(accordionTitleElement);
+
+    // then append inner div into title div
+    accordionTitle.appendChild(accordionTitleInnerDiv);
+    accordionTitle.appendChild(accordionTitleStatus);
+
+    // Creat content element
+    const accordionContent = document.createElement("div");
+
+    const contentElementText = document.createElement("p");
+    contentElementText.textContent = item.speaker;
+
+    const contentElementDate = document.createElement("p");
+    contentElementDate.textContent = item.date;
+
+    accordionContent.classList.add("accordion-content");
+    accordionContent.appendChild(contentElementText);
+    accordionContent.appendChild(contentElementDate);
+
+    // Append title and content to the accordion item
+    accordionItem.appendChild(accordionTitle);
+    accordionItem.appendChild(accordionContent);
+
+    // Add event listener to toggle content on click
+    accordionTitle.addEventListener("click", function () {
+      // toggle the active class
+      this.parentElement.classList.toggle("active");
+
+      //   toggle the icon class right and down arrow
+      if (this.parentElement.classList.contains("active")) {
+        accordionTitleIcon.classList.remove("fa-chevron-right");
+        accordionTitleIcon.classList.add("fa-chevron-down");
+      } else {
+        accordionTitleIcon.classList.remove("fa-chevron-down");
+        accordionTitleIcon.classList.add("fa-chevron-right");
+      }
+    });
+
+    // Append accordion item to the main accordion container
+    historyContainerMobile.appendChild(accordionItem);
+  });
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   // function to populate table data
   populateTableData();
+  populateTableDataMobile();
 });

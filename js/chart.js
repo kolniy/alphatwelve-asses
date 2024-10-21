@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const ctx = document.getElementById("reg-chart").getContext("2d");
+  const ctx = document.getElementById("reg-chart");
   let ticksColor = "#64748b";
   const chartData = {
     labels: [
