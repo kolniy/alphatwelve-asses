@@ -1,4 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
+let isSidebarOpen = false;
+
+const toggleSidebar = () => {
+  const sidebarImage = document.getElementById("sidebar-logo-img");
+  const sidebarImageOnNavbar = document.getElementById(
+    "sidebar-logo-img-on-navbar"
+  );
+
+  if (isSidebarOpen) {
+    sidebarImage.src = "./images/breadcrumb.png";
+    sidebarImageOnNavbar.src = "./images/breadcrumb.png";
+  } else {
+    sidebarImage.src = "./images/close.png";
+    sidebarImageOnNavbar.src = "./images/close.png";
+  }
+
+  isSidebarOpen = !isSidebarOpen;
+  document.getElementById("sidebar").classList.toggle("sidebar-mobile");
+};
+
+const $toggleNavbarBtn = document.querySelector(".mobile-menu__btn-container");
+const $toggleNavbarBtnOnNavbar = document.querySelector(
+  ".mobile-menu__btn-container-navbar"
+);
+
+$toggleNavbarBtn.addEventListener("click", toggleSidebar);
+$toggleNavbarBtnOnNavbar.addEventListener("click", toggleSidebar);
+
+const populateTableData = () => {
   const tableBody = document.querySelector(".table-body");
 
   eventsData.forEach((eventItem) => {
@@ -36,4 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tableBody.appendChild(row);
   });
+};
+document.addEventListener("DOMContentLoaded", function () {
+  // function to populate table data
+  populateTableData();
 });

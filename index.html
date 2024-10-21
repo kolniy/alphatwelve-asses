@@ -20,12 +20,17 @@
   <body>
     <div class="dashboard-layout">
       <div class="dashboard-layout__page-contents">
-        <div class="dashboard-layout__sidebar">
+        <!-- sidebar starts  -->
+        <div id="sidebar" class="dashboard-layout__sidebar">
           <div class="sidebar-contents__container">
             <div class="dashboard-layout__logo-section">
               <div>Full Logo</div>
-              <div class="mobile-menu__btn-container">
-                <img src="./images/breadcrumb.png" alt="..." />
+              <div class="mobile-menu__btn-container-navbar">
+                <img
+                  id="sidebar-logo-img-on-navbar"
+                  src="./images/breadcrumb.png"
+                  alt="..."
+                />
               </div>
             </div>
           </div>
@@ -74,7 +79,7 @@
                   <span>Settings</span>
                 </a>
               </li>
-              <li class="dashboard-link-item">
+              <li class="dashboard-link-item isClosed-on-mobile">
                 <a href="#">
                   <i class="fas fa-angle-double-left link-item-menu-icon"></i>
                   <span>Collapse</span>
@@ -110,6 +115,16 @@
 
         <!-- dashboard page starts here  -->
         <div class="dashboard-layout__main-contents-container">
+          <div class="dashboard-layout__logo-section-mobile">
+            <div>Full Logo</div>
+            <div class="mobile-menu__btn-container">
+              <img
+                id="sidebar-logo-img"
+                src="./images/breadcrumb.png"
+                alt="..."
+              />
+            </div>
+          </div>
           <div class="dashboard-layout__main-contents">
             <section class="user-welcome-section">
               <h2>Welcome! Here's your summary</h2>
