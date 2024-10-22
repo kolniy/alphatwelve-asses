@@ -1,4 +1,15 @@
 let isSidebarOpen = false;
+const $sidebarElement = document.getElementById("sidebar");
+const $sidebarLogoContainer = document.getElementById("sidebar-logo");
+const $darkmodeBtn = document.getElementById("dark-mode-switch");
+const $userProfileInfo = document.getElementById("user-profile-info");
+const collapseIconNavbar = document.getElementById("collapseIcon");
+
+const $collapseBtn = document.getElementById("collapseLink");
+const $toggleNavbarBtn = document.querySelector(".mobile-menu__btn-container");
+const $toggleNavbarBtnOnNavbar = document.querySelector(
+  ".mobile-menu__btn-container-navbar"
+);
 
 const toggleSidebar = () => {
   const sidebarImage = document.getElementById("sidebar-logo-img");
@@ -18,13 +29,34 @@ const toggleSidebar = () => {
   document.getElementById("sidebar").classList.toggle("sidebar-mobile");
 };
 
-const $toggleNavbarBtn = document.querySelector(".mobile-menu__btn-container");
-const $toggleNavbarBtnOnNavbar = document.querySelector(
-  ".mobile-menu__btn-container-navbar"
-);
+const toggleNavbarCollapse = (e) => {
+  e.preventDefault();
+  if ($sidebarElement.style.width === "64px") {
+    $sidebarElement.style.width = "240px"; // enlarge sidebar width
+    $sidebarLogoContainer.style.visibility = "visible"; // display logo
+    $darkmodeBtn.style.display = "flex"; // display darkmode switch
+    $userProfileInfo.style.display = "flex"; // display the user info
+
+    // collapse icon add
+    collapseIconNavbar.classList.remove("fa-angle-double-right");
+    collapseIconNavbar.classList.add("fa-angle-double-left");
+  } else {
+    $sidebarElement.style.width = "64px"; // shorten sidebar width
+    $sidebarLogoContainer.style.visibility = "hidden"; // remove logo from page
+    $darkmodeBtn.style.display = "none"; // remove darkmode switch
+    $userProfileInfo.style.display = "none"; // remove the user info
+
+    // collapse icon remove
+    collapseIconNavbar.classList.remove("fa-angle-double-left");
+    collapseIconNavbar.classList.add("fa-angle-double-right");
+  }
+};
 
 $toggleNavbarBtn.addEventListener("click", toggleSidebar);
 $toggleNavbarBtnOnNavbar.addEventListener("click", toggleSidebar);
+
+// collapse button click
+$collapseBtn.addEventListener("click", toggleNavbarCollapse);
 
 const populateTableData = () => {
   const tableBody = document.querySelector(".table-body");

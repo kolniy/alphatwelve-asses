@@ -24,7 +24,7 @@
         <div id="sidebar" class="dashboard-layout__sidebar">
           <div class="sidebar-contents__container">
             <div class="dashboard-layout__logo-section">
-              <div>Full Logo</div>
+              <div id="sidebar-logo">Full Logo</div>
               <div class="mobile-menu__btn-container-navbar">
                 <img
                   id="sidebar-logo-img-on-navbar"
@@ -80,15 +80,21 @@
                 </a>
               </li>
               <li class="dashboard-link-item isClosed-on-mobile">
-                <a href="#">
-                  <i class="fas fa-angle-double-left link-item-menu-icon"></i>
+                <a href="#" id="collapseLink">
+                  <i
+                    id="collapseIcon"
+                    class="fas fa-angle-double-left link-item-menu-icon"
+                  ></i>
                   <span>Collapse</span>
                 </a>
               </li>
             </ul>
             <div class="navbar-user-actions">
               <div class="sidebar-contents__container">
-                <div class="navbar-mode__toggle-container">
+                <div
+                  id="dark-mode-switch"
+                  class="navbar-mode__toggle-container"
+                >
                   <div class="dark-mode__switch">
                     <input
                       type="checkbox"
@@ -103,7 +109,7 @@
                   <div class="user-avatar">
                     <img src="/images/avatar.png" class="user-avatar" />
                   </div>
-                  <div class="user-profile-info">
+                  <div id="user-profile-info" class="user-profile-info">
                     <p class="username">Rudra Devi</p>
                     <p class="email">rudra.devi@gmail.com</p>
                   </div>
