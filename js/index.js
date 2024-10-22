@@ -11,6 +11,40 @@ const $toggleNavbarBtnOnNavbar = document.querySelector(
   ".mobile-menu__btn-container-navbar"
 );
 
+const $navLinkSpans = document.querySelectorAll(".link-item-menu-span");
+const $dashboardNotificationCount = document.querySelector(
+  ".dashboard-notification-indicator"
+);
+// side navbar ul element
+const $navlinksContainer = document.getElementById("nav-links");
+
+// side navbar anchor elements
+const $sideNavbarAnchorElement = document.querySelectorAll(
+  ".side-navbar-link-element"
+);
+
+const removeNavbarLinkSpanForUI = () => {
+  // All Navbar sapn items
+  $navLinkSpans.forEach((span) => {
+    span.style.display = "none";
+  });
+};
+
+const addNavbarLinkSpanToUi = () => {
+  // All Navbar sapn items
+  $navLinkSpans.forEach((span) => {
+    span.style.display = "block";
+  });
+};
+
+const addCentralJustificationFromAllNavLinks = () => {
+  $sideNavbarAnchorElement.forEach((a) => (a.style.justifyContent = "center"));
+};
+
+const removeCentralJustificationFromAllNavLinks = () => {
+  $sideNavbarAnchorElement.forEach((a) => (a.style.justifyContent = ""));
+};
+
 const toggleSidebar = () => {
   const sidebarImage = document.getElementById("sidebar-logo-img");
   const sidebarImageOnNavbar = document.getElementById(
@@ -40,6 +74,18 @@ const toggleNavbarCollapse = (e) => {
     // collapse icon add
     collapseIconNavbar.classList.remove("fa-angle-double-right");
     collapseIconNavbar.classList.add("fa-angle-double-left");
+
+    // add navbar notification
+    $dashboardNotificationCount.style.display = "flex";
+
+    // make navlink ul back to default width
+    $navlinksContainer.style.width = "87%";
+
+    // remove central justification from a links in navbar
+    removeCentralJustificationFromAllNavLinks();
+
+    // add navbar text when collapse is removed
+    addNavbarLinkSpanToUi();
   } else {
     $sidebarElement.style.width = "64px"; // shorten sidebar width
     $sidebarLogoContainer.style.visibility = "hidden"; // remove logo from page
@@ -49,6 +95,18 @@ const toggleNavbarCollapse = (e) => {
     // collapse icon remove
     collapseIconNavbar.classList.remove("fa-angle-double-left");
     collapseIconNavbar.classList.add("fa-angle-double-right");
+
+    // remove navbar notification
+    $dashboardNotificationCount.style.display = "none";
+
+    // make icon items justify to the center
+    addCentralJustificationFromAllNavLinks();
+
+    // make navlink ul back to default width
+    $navlinksContainer.style.width = "100%";
+
+    // remove navbar text when collapsed
+    removeNavbarLinkSpanForUI();
   }
 };
 

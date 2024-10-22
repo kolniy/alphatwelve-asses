@@ -35,57 +35,60 @@
             </div>
           </div>
           <div class="sidebar-menu">
-            <ul class="nav-links">
+            <ul id="nav-links" class="nav-links">
               <li class="dashboard-link-item active">
-                <a href="#">
+                <a href="#" class="side-navbar-link-element">
                   <i class="fas fa-home link-item-menu-icon"></i>
-                  <span>Home</span>
+                  <span class="link-item-menu-span">Home</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="#">
+                <a href="#" class="side-navbar-link-element">
                   <i class="fas fa-calendar-alt link-item-menu-icon"></i>
-                  <span>Events</span>
+                  <span class="link-item-menu-span">Events</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="#">
+                <a href="#" class="side-navbar-link-element">
                   <i class="fas fa-volume-up link-item-menu-icon"></i>
-                  <span>Speakers</span>
+                  <span class="link-item-menu-span">Speakers</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="#">
+                <a href="#" class="side-navbar-link-element">
                   <i class="fas fa-file-alt link-item-menu-icon"></i>
-                  <span>Reports</span>
+                  <span class="link-item-menu-span">Reports</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="#">
+                <a href="#" class="side-navbar-link-element">
                   <i class="fas fa-bell link-item-menu-icon"></i>
-                  <span>Notifications</span>
+                  <span class="link-item-menu-span">Notifications</span>
                 </a>
                 <div class="dashboard-notification-indicator">3</div>
               </li>
               <li class="dashboard-link-item">
-                <a href="#">
+                <a href="#" class="side-navbar-link-element">
                   <i class="fas fa-comments link-item-menu-icon"></i>
-                  <span>Messages</span>
+                  <span class="link-item-menu-span">Messages</span>
                 </a>
               </li>
               <li class="dashboard-link-item">
-                <a href="#">
+                <a href="#" class="side-navbar-link-element">
                   <i class="fas fa-cog link-item-menu-icon"></i>
-                  <span>Settings</span>
+                  <span class="link-item-menu-span">Settings</span>
                 </a>
               </li>
-              <li class="dashboard-link-item isClosed-on-mobile">
-                <a href="#" id="collapseLink">
+              <li
+                id="collapseLink"
+                class="dashboard-link-item isClosed-on-mobile"
+              >
+                <a href="#" class="side-navbar-link-element">
                   <i
                     id="collapseIcon"
                     class="fas fa-angle-double-left link-item-menu-icon"
                   ></i>
-                  <span>Collapse</span>
+                  <span class="link-item-menu-span">Collapse</span>
                 </a>
               </li>
             </ul>
@@ -385,6 +388,31 @@
                   </div>
                 </div>
                 <!-- pagination end here  -->
+              </div>
+            </section>
+            <!-- Mobile bottom navbar starts here  -->
+            <section class="mobile-navbar-section">
+              <div class="mobile-navbar-section__container">
+                <div class="mobile-navigation-section__item active-mobile-item">
+                  <span><i class="fas fa-home"></i></span>
+                  <p>Home</p>
+                </div>
+                <div class="mobile-navigation-section__item">
+                  <span><i class="fas fa-calendar-alt"></i></span>
+                  <p>Events</p>
+                </div>
+                <div class="mobile-navigation-section__item">
+                  <span><i class="fas fa-volume-up"></i></span>
+                  <p>Speakers</p>
+                </div>
+                <div class="mobile-navigation-section__item">
+                  <span><i class="fas fa-file-alt"></i></span>
+                  <p>Reports</p>
+                </div>
+                <div class="mobile-navigation-section__item">
+                  <span><i class="far fa-user-circle"></i></span>
+                  <p>Profile</p>
+                </div>
               </div>
             </section>
           </div>
