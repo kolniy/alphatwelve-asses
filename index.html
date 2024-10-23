@@ -13,7 +13,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
     <title>Welcome to your Dashboard</title>
   </head>
@@ -62,6 +61,7 @@
               </li>
               <li class="dashboard-link-item">
                 <a href="#" class="side-navbar-link-element">
+                  <span class="dashboard-notification-dot"></span>
                   <i class="fas fa-bell link-item-menu-icon"></i>
                   <span class="link-item-menu-span">Notifications</span>
                 </a>
@@ -421,6 +421,60 @@
         <!-- dashboard page ends here  -->
       </div>
     </div>
+
+    <!-- Modal HTML -->
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 id="modalEventName"></h2>
+            <p id="modalEventDate"></p>
+          </div>
+          <span onclick="handleModalClose()" class="modal-close">
+            <img
+              id="sidebar-logo-img-on-navbar"
+              src="./images/close.png"
+              alt="..."
+          /></span>
+        </div>
+        <div class="modal-body">
+          <p id="event-description" class="event-description"></p>
+
+          <div class="attendes-info">
+            <img src="/images/avatar-group.png" alt="..." />
+            <!-- prettier-ignore -->
+            <p class="guests-count">Speaker(s): <span id="event-speakers" class="footer-guest-speaker-info">
+              </span>
+            </p>
+            <p id="attendees" class="attendees-count"></p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="modal-footer-close__btn" onclick="handleModalClose()">
+            Close
+          </button>
+          <div class="actions-button__container">
+            <button
+              onclick="handleFooterBtnClick()"
+              class="modal-footer-delete__btn"
+            >
+              Delete
+            </button>
+            <button
+              onclick="handleFooterBtnClick()"
+              class="modal-footer-complete__btn"
+            >
+              Mark as completed
+            </button>
+          </div>
+        </div>
+        <!-- <p><strong>Speaker:</strong> <span id="modalEventSpeaker"></span></p>
+        <p><strong>Status:</strong> <span id="modalEventStatus"></span></p> -->
+      </div>
+    </div>
+    <!-- Modal Markup ends here  -->
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/chart.js"></script>
     <script src="/js/slidder.js"></script>

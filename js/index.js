@@ -5,10 +5,24 @@ const $darkmodeBtn = document.getElementById("dark-mode-switch");
 const $userProfileInfo = document.getElementById("user-profile-info");
 const collapseIconNavbar = document.getElementById("collapseIcon");
 
+// modal handler
+const $modal = document.getElementById("eventModal");
+
+// event display elements
+const $eventName = document.getElementById("modalEventName");
+const $eventDate = document.getElementById("modalEventDate");
+const $eventDescription = document.getElementById("event-description");
+const $eventSpeake = document.getElementById("event-speakers");
+const $attendees = document.getElementById("attendees");
+
 const $collapseBtn = document.getElementById("collapseLink");
 const $toggleNavbarBtn = document.querySelector(".mobile-menu__btn-container");
 const $toggleNavbarBtnOnNavbar = document.querySelector(
   ".mobile-menu__btn-container-navbar"
+);
+
+const $dashboardNotificationIndicator = document.querySelector(
+  ".dashboard-notification-dot"
 );
 
 const $navLinkSpans = document.querySelectorAll(".link-item-menu-span");
@@ -22,6 +36,9 @@ const $navlinksContainer = document.getElementById("nav-links");
 const $sideNavbarAnchorElement = document.querySelectorAll(
   ".side-navbar-link-element"
 );
+
+// side navbar icons
+const $sideNavbarIcons = document.querySelectorAll(".link-item-menu-icon");
 
 const removeNavbarLinkSpanForUI = () => {
   // All Navbar sapn items
@@ -45,6 +62,14 @@ const removeCentralJustificationFromAllNavLinks = () => {
   $sideNavbarAnchorElement.forEach((a) => (a.style.justifyContent = ""));
 };
 
+const addIconsMarginRightStyle = () => {
+  $sideNavbarIcons.forEach((i) => (i.style.marginRight = "15px"));
+};
+
+const removeIconsMarginRightStyle = () => {
+  $sideNavbarIcons.forEach((i) => (i.style.marginRight = ""));
+};
+
 const toggleSidebar = () => {
   const sidebarImage = document.getElementById("sidebar-logo-img");
   const sidebarImageOnNavbar = document.getElementById(
@@ -63,52 +88,90 @@ const toggleSidebar = () => {
   document.getElementById("sidebar").classList.toggle("sidebar-mobile");
 };
 
+const collapseNavbar = () => {
+  $sidebarElement.style.width = "64px"; // shorten sidebar width
+  $sidebarLogoContainer.style.visibility = "hidden"; // remove logo from page
+  $darkmodeBtn.style.display = "none"; // remove darkmode switch
+  $userProfileInfo.style.display = "none"; // remove the user info
+
+  // collapse icon remove
+  collapseIconNavbar.classList.remove("fa-angle-double-left");
+  collapseIconNavbar.classList.add("fa-angle-double-right");
+
+  // remove navbar notification
+  $dashboardNotificationCount.style.display = "none";
+
+  // make icon items justify to the center
+  addCentralJustificationFromAllNavLinks();
+
+  // remove marginRight from links for proper centralization
+  removeIconsMarginRightStyle();
+
+  // add notification to UI
+  $dashboardNotificationIndicator.style.display = "block";
+
+  // make navlink ul back to default width
+  $navlinksContainer.style.width = "100%";
+
+  // remove navbar text when collapsed
+  removeNavbarLinkSpanForUI();
+};
+
+const openNavbar = () => {
+  $sidebarElement.style.width = "240px"; // enlarge sidebar width
+  $sidebarLogoContainer.style.visibility = "visible"; // display logo
+  $darkmodeBtn.style.display = "flex"; // display darkmode switch
+  $userProfileInfo.style.display = "flex"; // display the user info
+
+  // collapse icon add
+  collapseIconNavbar.classList.remove("fa-angle-double-right");
+  collapseIconNavbar.classList.add("fa-angle-double-left");
+
+  // add navbar notification
+  $dashboardNotificationCount.style.display = "flex";
+
+  // make navlink ul back to default width
+  $navlinksContainer.style.width = "87%";
+
+  // remove central justification from a links in navbar
+  removeCentralJustificationFromAllNavLinks();
+
+  // remove notification for from UI
+  $dashboardNotificationIndicator.style.display = "none";
+
+  // add marginRight back to links to set back as default
+  addIconsMarginRightStyle();
+
+  // add navbar text when collapse is removed
+  addNavbarLinkSpanToUi();
+};
+
 const toggleNavbarCollapse = (e) => {
   e.preventDefault();
   if ($sidebarElement.style.width === "64px") {
-    $sidebarElement.style.width = "240px"; // enlarge sidebar width
-    $sidebarLogoContainer.style.visibility = "visible"; // display logo
-    $darkmodeBtn.style.display = "flex"; // display darkmode switch
-    $userProfileInfo.style.display = "flex"; // display the user info
-
-    // collapse icon add
-    collapseIconNavbar.classList.remove("fa-angle-double-right");
-    collapseIconNavbar.classList.add("fa-angle-double-left");
-
-    // add navbar notification
-    $dashboardNotificationCount.style.display = "flex";
-
-    // make navlink ul back to default width
-    $navlinksContainer.style.width = "87%";
-
-    // remove central justification from a links in navbar
-    removeCentralJustificationFromAllNavLinks();
-
-    // add navbar text when collapse is removed
-    addNavbarLinkSpanToUi();
+    openNavbar();
   } else {
-    $sidebarElement.style.width = "64px"; // shorten sidebar width
-    $sidebarLogoContainer.style.visibility = "hidden"; // remove logo from page
-    $darkmodeBtn.style.display = "none"; // remove darkmode switch
-    $userProfileInfo.style.display = "none"; // remove the user info
-
-    // collapse icon remove
-    collapseIconNavbar.classList.remove("fa-angle-double-left");
-    collapseIconNavbar.classList.add("fa-angle-double-right");
-
-    // remove navbar notification
-    $dashboardNotificationCount.style.display = "none";
-
-    // make icon items justify to the center
-    addCentralJustificationFromAllNavLinks();
-
-    // make navlink ul back to default width
-    $navlinksContainer.style.width = "100%";
-
-    // remove navbar text when collapsed
-    removeNavbarLinkSpanForUI();
+    collapseNavbar();
   }
 };
+
+// open modal
+const launchModalView = (item) => {
+  $eventName.textContent = item.eventName;
+  $eventDate.textContent = item.date;
+  $eventDescription.textContent = item.description;
+  $eventSpeake.textContent = item.speaker;
+  $attendees.textContent = `${item.attendees} Attendees`;
+
+  $modal.style.display = "flex";
+};
+
+// close modal
+const handleModalClose = () => {
+  $modal.style.display = "none";
+};
+
+const handleFooterBtnClick = () => alert("We're working Here");
 
 $toggleNavbarBtn.addEventListener("click", toggleSidebar);
 $toggleNavbarBtnOnNavbar.addEventListener("click", toggleSidebar);
@@ -123,6 +186,9 @@ const populateTableData = () => {
     const row = document.createElement("tr");
 
     for (const key in eventItem) {
+      if (key === "description" || key === "attendees") {
+        break;
+      }
       const cell = document.createElement("td");
 
       if (key.toLowerCase() === "status") {
@@ -152,6 +218,9 @@ const populateTableData = () => {
       row.appendChild(cell);
     }
 
+    row.addEventListener("click", function () {
+      launchModalView(eventItem);
+    });
     tableBody.appendChild(row);
   });
 };
@@ -213,6 +282,11 @@ const populateTableDataMobile = () => {
     accordionContent.classList.add("accordion-content");
     accordionContent.appendChild(contentElementText);
     accordionContent.appendChild(contentElementDate);
+
+    // add modal launching to accordion
+    accordionContent.addEventListener("click", function () {
+      launchModalView(item);
+    });
 
     // Append title and content to the accordion item
     accordionItem.appendChild(accordionTitle);

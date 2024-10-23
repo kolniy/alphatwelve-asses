@@ -157,6 +157,7 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .dashboard-notification-indicator {
@@ -178,6 +179,18 @@ body {
 
 .dashboard-link-item:hover a {
   color: var(--color-primary);
+}
+
+.dashboard-notification-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #f43f5e;
+  position: absolute;
+  z-index: 20;
+  top: -4px;
+  left: 18.5px;
+  display: none;
 }
 
 .link-item-menu-icon {
@@ -342,6 +355,12 @@ body {
   justify-content: space-evenly;
   border-radius: 3px;
   padding-left: 0.889rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.statistics-single__card:hover {
+  transform: translateY(-5px);
 }
 
 .statistics-single__card .card-top-section {
@@ -423,15 +442,15 @@ body {
 .reg-event-updates-container {
   margin-top: 1rem;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .reg-event-updates-container .chart-container {
   border-radius: 6px;
   border: 1px solid var(--card-border-color);
-  padding: 2.1rem;
+  padding: 2rem;
+  width: 50%;
 }
 
 .reg-event-updates-container .chart-container canva {
@@ -442,7 +461,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 4px;
-  width: 100%;
+  width: 50%;
 }
 
 /* carousel start  */
@@ -1033,6 +1052,130 @@ tbody .completed i {
   font-size: 14px;
 }
 
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 100000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.modal-content {
+  border-radius: 3px;
+  background-color: var(--color-background);
+  width: 80%;
+  max-width: 440px;
+  height: fit-content;
+}
+
+.modal-header {
+  display: flex;
+  width: 100%;
+  padding: 1.4rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.modal-header h2 {
+  color: var(--primary-text-color);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.modal-header p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  margin-top: 0.2rem;
+  color: var(--statistics-text-color);
+}
+
+.modal-body {
+  padding-top: 1.4rem;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  width: 100%;
+}
+
+.modal-body .event-description {
+  font-size: 13px;
+  color: var(--primary-text-color);
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.attendes-info {
+  margin-top: 2.5rem;
+}
+
+.attendes-info p {
+  color: var(--primary-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-footer {
+  width: 100%;
+  background-color: #f8fafc;
+  margin-top: 1rem;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-guest-speaker-info {
+  display: none;
+}
+
+.modal-footer button {
+  outline: none;
+  border: none;
+  height: 36px;
+  padding: 0.4rem 1.2rem;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.modal-footer-close__btn {
+  background-color: var(--color-background);
+  border: 1px solid var(--card-border-color) !important;
+  color: var(--primary-text-color);
+}
+
+.modal-footer-delete__btn {
+  background-color: #f43f5e;
+  color: var(--color-background);
+  margin-right: 3px;
+}
+
+.modal-footer-complete__btn {
+  background-color: #8576ff;
+  color: var(--color-background);
+}
+
 @media screen and (max-width: 1000px) {
   /* card change on smaller screens  */
   .user-statictics-section {
@@ -1042,8 +1185,21 @@ tbody .completed i {
 
   .reg-event-updates-container {
     margin-top: 0.6rem;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 0.3rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .reg-event-updates-container .chart-container {
+    width: 100%;
+    height: 200px;
+  }
+
+  .reg-event-updates-container .chart-container canva {
+    width: 100%;
+  }
+
+  .reg-event-updates-container .carousel-container {
+    width: 100%;
   }
 }
 
@@ -1069,7 +1225,7 @@ tbody .completed i {
   .reg-event-updates-container .chart-container {
     border-radius: 6px;
     border: 1px solid var(--card-border-color);
-    padding: 0.8rem;
+    padding: 0.2rem;
     overflow-x: auto;
   }
 
@@ -1187,5 +1343,39 @@ tbody .completed i {
   /* remove events history container margin bottom on mobile view  */
   .event-history {
     margin-bottom: 0;
+  }
+
+  .modal-content {
+    margin-bottom: 3rem;
+  }
+
+  /* Modal styles on mobile  */
+  .modal-footer {
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  .actions-button__container {
+    width: 100%;
+  }
+
+  .footer-guest-speaker-info {
+    display: block;
+  }
+
+  .modal-footer button {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+
+  .modal-footer-close__btn {
+    background-color: var(--color-background);
+    border: 1px solid var(--card-border-color) !important;
+    color: var(--primary-text-color);
+  }
+
+  .modal-footer-delete__btn {
+    margin-right: 0;
   }
 }
