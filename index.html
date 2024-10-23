@@ -251,10 +251,10 @@
                       </div>
                     </div>
                   </div>
-                  <button class="carousel-prev" onclick="changeSlide(-1)">
+                  <button class="carousel-prev">
                     <i class="fas fa-angle-left"></i>
                   </button>
-                  <button class="carousel-next" onclick="changeSlide(1)">
+                  <button class="carousel-next">
                     <i class="fas fa-angle-right"></i>
                   </button>
 
@@ -275,7 +275,11 @@
                 <div class="filter-sub-section">
                   <div class="text-filter__container">
                     <span><i class="fas fa-search"></i></span>
-                    <input type="text" placeholder="Search..." />
+                    <input
+                      id="search-input"
+                      type="text"
+                      placeholder="Search..."
+                    />
                   </div>
                   <div class="select-filter__container">
                     <select className="date-filter-input">
@@ -285,10 +289,10 @@
                     </select>
                   </div>
                   <div class="select-filter__container">
-                    <select className="date-filter-input">
+                    <select id="status-dropdown" className="date-filter-input">
                       <option value="">Status</option>
-                      <option value="">Select</option>
-                      <option value="">Select</option>
+                      <option value="completed">completed</option>
+                      <option value="in progress">In Progress</option>
                     </select>
                   </div>
                   <div class="select-filter__container">

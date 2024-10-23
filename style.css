@@ -658,8 +658,8 @@ body {
   height: 100%;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
@@ -671,7 +671,7 @@ body {
 }
 
 .list-count {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--primary-text-color);
 }

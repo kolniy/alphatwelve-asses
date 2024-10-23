@@ -21,6 +21,9 @@ const $toggleNavbarBtnOnNavbar = document.querySelector(
   ".mobile-menu__btn-container-navbar"
 );
 
+const $searchInput = document.getElementById("search-input");
+const $statusInput = document.getElementById("status-dropdown");
+
 const $dashboardNotificationIndicator = document.querySelector(
   ".dashboard-notification-dot"
 );
@@ -179,8 +182,10 @@ $toggleNavbarBtnOnNavbar.addEventListener("click", toggleSidebar);
 // collapse button click
 $collapseBtn.addEventListener("click", toggleNavbarCollapse);
 
-const populateTableData = () => {
+const populateTableData = (eventsData) => {
   const tableBody = document.querySelector(".table-body");
+
+  tableBody.innerHTML = "";
 
   eventsData.forEach((eventItem) => {
     const row = document.createElement("tr");
@@ -225,10 +230,13 @@ const populateTableData = () => {
   });
 };
 
-const populateTableDataMobile = () => {
+const populateTableDataMobile = (eventsData) => {
   const historyContainerMobile = document.querySelector(
     ".mobile-history__body"
   );
+
+  // list containerbody before repopulating
+  historyContainerMobile.innerHTML = "";
 
   eventsData.forEach((item, index) => {
     // Create accordion item container
@@ -312,8 +320,41 @@ const populateTableDataMobile = () => {
   });
 };
 
+const filterEvents = () => {
+  const inputValue = $searchInput.value.toLowerCase();
+  const statusValue = $statusInput.value.toLowerCase();
+  // Convert input to lowercase for case-insensitive search
+  const filteredData = eventsData.filter((event) => {
+    const matchesInput =
+      event.eventName.toLowerCase().includes(inputValue.toLowerCase()) ||
+      event.speaker.toLowerCase().includes(inputValue.toLowerCase()) ||
+      event.status.toLowerCase().includes(inputValue.toLowerCase()) ||
+      event.date.includes(inputValue); // Keep date case-sensitive
+
+    const matchesStatus =
+      statusValue === "" || event.status.toLowerCase() === statusValue;
+
+    return matchesInput && matchesStatus;
+  });
+
+  document.querySelector(
+    ".list-count"
+  ).textContent = `Displaying ${filteredData.length} results`;
+  // Repopulate table with the filtered data
+  populateTableData(filteredData);
+  populateTableDataMobile(filteredData);
+};
+
+$searchInput.addEventListener("input", filterEvents);
+$statusInput.addEventListener("change", filterEvents);
+
 document.addEventListener("DOMContentLoaded", function () {
+  // display the total number of documents on the UI on page load
+  document.querySelector(
+    ".list-count"
+  ).textContent = `Displaying ${eventsData.length} results`;
+
   // function to populate table data
-  populateTableData();
-  populateTableDataMobile();
+  populateTableData(eventsData);
+  populateTableDataMobile(eventsData);
 });
